@@ -1,0 +1,13 @@
+*.xml
+*.suo
+*.json
+*.lst
+*.class
+*.iml
+*.prefs
+*.properties
+*.sqlite
+*.component
+*.jar
+*.log
+*.txt
