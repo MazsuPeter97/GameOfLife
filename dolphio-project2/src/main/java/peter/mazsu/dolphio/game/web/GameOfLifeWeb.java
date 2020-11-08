@@ -164,7 +164,7 @@ public class GameOfLifeWeb implements Serializable {
 	 */
 	@PostMapping(value = "/step", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public CoordinatesWebVO stepOfGame(@RequestBody Integer step) {
-		return new CoordinatesWebVO(coordinateServiceImpl.getLastCoordinates(step));
+		return new CoordinatesWebVO(coordinateServiceImpl.getLastCoordinates(step - 1));
 	}
 
 }

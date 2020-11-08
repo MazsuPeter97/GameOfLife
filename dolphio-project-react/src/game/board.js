@@ -44,6 +44,8 @@ class Board extends Component {
         e.preventDefault();
         this.props.getLastStepData(this.state.step);
         this.setState({step : this.props.coordinates.coordinates[0].step});
+        this.clearMap();
+        this.paintStructure(this.getElementFromCell());
     }
 
     automaticGame(e){
@@ -80,16 +82,11 @@ class Board extends Component {
 		return this.props.coordinates;
     }
    
-    clearMap =()=> {
+    clearMap = ()=> {
         $('.cell.black').removeClass('black');
     }
-      
-    repaintStructure=(coordinatesWebVO)=> {
-        this.clearMap();
-        this.paintStructure(coordinatesWebVO);
-    }
-      
-    paintStructure=(coordinatesWebVO)=> {
+            
+    paintStructure = (coordinatesWebVO) => {
         $.each(coordinatesWebVO.coordinates, function(index, element) {
             $('.cell[x=' + element.x + '][y=' + element.y + ']').addClass('black');
         });
@@ -105,7 +102,7 @@ class Board extends Component {
                         <button onClick={this.automaticGame}>Automatikus</button>
                         <button onClick={this.nextStep}>Következő</button>
                         <button onClick={this.lastStep}>Előző</button>
-                        <div>{this.state.step}</div>
+                        <div>Step: {this.state.step}</div>
                     </form>
                 </div>
             </div>
